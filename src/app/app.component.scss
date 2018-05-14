@@ -1,0 +1,39 @@
+@import '~@angular/material/theming';
+
+$dark: #30343f;
+$middle: #1e2749;
+$light: #0c6291;
+$eggwhite: #fafaff;
+$darkwhite: #e4d9ff;
+
+$fjalla: 'Fjalla One', sans-serif;
+$maven: 'Maven Pro', sans-serif;
+$heebo: 'Heebo', sans-serif;
+
+
+.grid {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+    align-items: center;
+}
+.gridsize {
+    border-style: solid;
+    border-color: $darkwhite;
+}
+
+.grid:hover {
+    color: $darkwhite;
+}
+
+h1 {
+    font-family: $heebo;
+    color: $light !important;
+}
+
+.head {
+    background-color: $light;
+    padding-top: 5em;
+}
