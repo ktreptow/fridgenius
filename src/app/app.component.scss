@@ -21,7 +21,7 @@ $heebo: 'Heebo', sans-serif;
 }
 .gridsize {
     border-style: solid;
-    border-color: $darkwhite;
+    border-color: $light;
 }
 
 .grid:hover {
@@ -36,4 +36,13 @@ h1 {
 .head {
     background-color: $light;
     padding-top: 5em;
+}
+
+.footer {
+    background-color: $light;
+}
+
+.plus {
+    color: white;
+    font-size: 5em;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { Http, Response } from '@angular/http';
 import { Location } from '@angular/common';
@@ -6,20 +6,21 @@ import { Product } from './product';
 
 import 'rxjs/add/operator/map';
 
-// Produkt hinzufügen - add - &quot;/fridge/api/v0.1/inventory/add&quot;
-// get all content  - get - &quot;/fridge/api/v0.1/inventory/get&quot;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class homeComponent {
   title = 'fridgenius';
   public static readonly BASE_URL = 'http://localhost:8080/fridge/api/v0.1/inventory';
   public static readonly ADD_PRODUCT = '/add';
   public static readonly GET_ALL = '/get';
   products: any[];
+  testproducts: any[];
   ean : any;
+  sub : any;
 
   constructor(private route: ActivatedRoute, private http: Http, private _location: Location) {
   }
@@ -28,11 +29,7 @@ export class homeComponent {
     this._location.back();
   }
 
-  // ngOnInit() {    
-  //   this.sub = this.route.params.subscribe(params => {
-  //     this.ean = params['ean'];
-  //   })
-  // }
+
 
   getData(url : string){
     return this.http.get(url).map((res: Response) => res.json());
@@ -45,5 +42,8 @@ export class homeComponent {
     })
   }
 
-
+  // addProduct() {
+  //   let url = homeComponent.BASE_URL.concat(homeComponent.ADD_PRODUCT);
+  //   this.getData
+  // }
   }

@@ -1,0 +1,67 @@
+<!-- 
+    -ean
+    -Kategorie Dropdown
+    -Name
+    -MHD
+    -stock count
+    -content
+    -content unit
+
+-->
+
+<mat-toolbar>
+        <!-- <mat-icon (click)="goBack()">keyboard_backspace</mat-icon> -->
+        <!-- <h1>{{Product.name}}</h1> -->
+        <h1>Produkt hinzufügen</h1>
+    </mat-toolbar>
+
+<mat-card>
+              <mat-form-field>
+                    <input matInput placeholder="Name" [(ngModel)]="name">
+                  </mat-form-field>
+                                     
+                  
+    <mat-form-field>
+            <mat-select placeholder="Kategorie" [(ngModel)]="category">
+                    <mat-option value="gemüse" >Gemüse</mat-option>
+                    <mat-option value="obst" >Obst</mat-option>
+                    <mat-option value="fleisch" >Fleisch</mat-option>
+                </mat-select>
+          </mat-form-field>
+        </mat-card>   
+
+<mat-card>
+
+        <input matInput [matDatepicker]="picker" placeholder="Mindesthaltbarkeitsdatum" [(ngModel)]="mhd">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker> 
+</mat-card>
+
+
+
+
+
+        <mat-card>
+          <mat-form-field>
+                <input matInput placeholder="Anzahl (optional)" [(ngModel)]="stock_count">
+              </mat-form-field>
+                                      
+              <mat-form-field>
+                    <input matInput placeholder="Inhalt (optional)" [(ngModel)]="content">
+                  </mat-form-field>
+                </mat-card>   
+                <mat-card>
+                  <mat-form-field>
+                        <input matInput placeholder="Inhalts Einheit (optional)" [(ngModel)]="content_unit">
+                      </mat-form-field>
+
+                      <mat-form-field>
+                            <input matInput placeholder="EAN (optional)" [(ngModel)]="ean">
+                          </mat-form-field>
+                                    
+                        </mat-card>   
+
+
+                        <mat-card class="footer">
+                                <button mat-fab class="plus" (click)="addProduct()">+</button>
+                            </mat-card>

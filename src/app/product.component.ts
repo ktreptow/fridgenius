@@ -5,11 +5,14 @@ import { Location } from '@angular/common';
 import { Product } from './product';
 
 import 'rxjs/add/operator/map';
+import { DetailedProduct } from './detailed_product';
 
 // produktdetails - get - /fridge/api/v0.1/food/get/{ean};
 // BESTAND ÄNDERN - POST - /fridge/api/v0.1/inventory/update/{stock_id};
 // PRODUKT ÄNDERN - POST - /fridge/api/v0.1/food/update/{ean};
 // löschen - delete - /fridge/api/v0.1/inventory/remove/{stock_id}?amount={menge};
+
+// DIALOG zum ändern der Bestände https://stackblitz.com/angular/ardpegolpnk?file=app%2Fdialog-overview-example-dialog.html
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -23,23 +26,52 @@ export class productComponent {
   public static readonly CHANGE_PRODUCT = '/food/update'; // {ean}
   public static readonly DELETE_PRODUCT = '/inventory/remove/'; // {stock_id}?amount={menge}
   
-  products: any[];
-
+  sub : any; 
+  productDetails : DetailedProduct;
+  product : Product;
+  amount : number; 
+  categories : any[];
+  
   constructor(private route: ActivatedRoute, private http: Http, private _location: Location) {
   }
 
-
+  goBack() {
+    this._location.back();
+  }
+  ngOnInit() {    
+    this.sub = this.route.params.subscribe(params => {
+      this.product.ean = params['ean'];
+    })
+    this.getCategories();
+  }
 
   getData(url : string){
     return this.http.get(url).map((res: Response) => res.json());
   }
 
-  getProducts() {
-    let url : string = productComponent.BASE_URL.concat(this.ean);
-    this.getData(url).subscribe(categories => {
-      this.products = products;
+  getProduct(ean : string) {
+    let url : string = productComponent.BASE_URL.concat(productComponent.GET_ONE_URL.concat(this.product.ean));
+    this.getData(url).subscribe(product => {
+      this.product = product;
     })
+
+
   }
 
+  deleteData(url: string){
+    return this.http.delete(url);   
+  }
+  
+  deleteProduct() {
+    let url : string = productComponent.BASE_URL.concat(productComponent.DELETE_PRODUCT.concat(this.product.ean));
+    this.deleteData(url).subscribe();
+    this.goBack();
+  }
 
+  getCategories() {
+    let url : string = productComponent.BASE_URL.concat("/food/categories/get");
+    this.getData(url).subscribe(categories => {
+      this.categories = categories;
+    });
+  }
   }

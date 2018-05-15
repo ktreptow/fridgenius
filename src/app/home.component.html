@@ -1,15 +1,25 @@
-<a mat-button routerLink=""><mat-icon>home</mat-icon></a>
 
-
-<h1>Inhalt Deines Kühlschranks:</h1>
-
+<mat-toolbar>
+    <!-- <span>
+    <mat-icon (click)="goBack()">home</mat-icon>
+</span> -->
+   <h1>Inhalt Deines Kühlschranks:</h1>
+</mat-toolbar>
 
 <mat-grid-list cols="4">
- <div *ngFor = let Product of products>
-    <mat-grid-tile mat-button class="gridsize">
-        <a mat-button class="grid" routerLink="product"></a>
-    </mat-grid-tile>
+    <div *ngFor="let Product of products">
+            <mat-grid-tile mat-button class="gridsize">
+                <a mat-button class="grid" routerLink="/product/{{Product.ean}}">
+                <img alt="{{Product.name}}" src="{{Product.img_url}}">     
+                </a>
+            </mat-grid-tile>
 </div>
 </mat-grid-list>
+
+<footer>
+<mat-card class="footer">
+        <button mat-fab class="plus" routerLink="add">+</button>
+</mat-card>
+</footer>
     <router-outlet></router-outlet>
     

@@ -1,0 +1,29 @@
+
+<mat-toolbar>
+        <mat-icon (click)="goBack()">keyboard_backspace</mat-icon>
+        <!-- <h1>{{Product.name}}</h1> -->
+        <h1>Jesus Christis</h1>
+    </mat-toolbar>
+    
+
+    <img alt="Produktfoto" src="{{Product.img_url}}">
+            <table mat-table>
+
+    <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>Nutrition</th>
+            <td mat-cell *matCellDef="let element"> {{productDetails}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> "" </th>
+            <td mat-cell *matCellDef="let element"> {{productDetails}} </td>
+          </ng-container>
+
+        </table>
+
+
+        <mat-card class="footer">
+                <button mat-fab class="minus" (click)="deleteProduct()">-</button>
+                <button mat-fab class="minus" (click)="deleteProduct()">-</button>
+            </mat-card>
