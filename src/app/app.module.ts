@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { homeComponent } from './home.component';
 import { productComponent } from './product.component';
 import { createComponent } from './create.component';
+import { changeComponent } from './change.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { createComponent } from './create.component';
     AppComponent,
     homeComponent,
     productComponent,
-    createComponent
+    createComponent,
+    changeComponent
 
   ],
   imports: [

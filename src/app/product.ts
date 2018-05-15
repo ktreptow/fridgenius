@@ -6,6 +6,8 @@ export class Product {
     img_url:string;
     name:string;
     category:string;
+    content:Number;
+    content_unit:string;
 
     constructor(
         ean:string,
@@ -14,5 +16,7 @@ export class Product {
     img_url:string,
     name:string,
     category:string,
+    content:Number,
+    content_unit:string,
     ){}
 }

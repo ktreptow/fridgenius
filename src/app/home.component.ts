@@ -14,7 +14,7 @@ import 'rxjs/add/operator/map';
 
 export class homeComponent {
   title = 'fridgenius';
-  public static readonly BASE_URL = 'http://localhost:8080/fridge/api/v0.1/inventory';
+  public static readonly BASE_URL = 'http://10.14.208.103:5000/fridge/api/v0.1/inventory';
   public static readonly ADD_PRODUCT = '/add';
   public static readonly GET_ALL = '/get';
   products: any[];
@@ -29,8 +29,9 @@ export class homeComponent {
     this._location.back();
   }
 
-
-
+  ngOnInit() {
+    this.getProducts();
+  }
   getData(url : string){
     return this.http.get(url).map((res: Response) => res.json());
   }
@@ -40,6 +41,11 @@ export class homeComponent {
     this.getData(url).subscribe(products => {
       this.products = products;
     })
+
+    if (this.products==null) {
+      let message : string = "Dein Kühlschrank ist leer :("
+      let empty : boolean = true;
+    }
   }
 
   // addProduct() {
