@@ -1,7 +1,7 @@
 export class DetailedProduct {
-
+content_url : string;
     name : string;
-img_url : string; 
+image_url : string; 
 nutriments : {
     energy_unit : string;
     energy_100g : string;

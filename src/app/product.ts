@@ -1,22 +1,20 @@
 export class Product {
-
-    ean:string;
-    stock_id:string;
-    stock_count:Number;
-    img_url:string;
-    name:string;
+products : {
     category:string;
-    content:Number;
-    content_unit:string;
-
+    ean:string;
+    img_url:string;
+    mhd : Date;
+    name : string;
+    stock_count:Number;
+    stock_id:string;
+}
     constructor(
+        categor:string,
         ean:string,
-    stock_id:string,
-    stock_count:Number,
-    img_url:string,
-    name:string,
-    category:string,
-    content:Number,
-    content_unit:string,
+        img_url:string,
+        mhd : Date,
+        name : string,
+        stock_count:Number,
+        stock_id:string
     ){}
 }

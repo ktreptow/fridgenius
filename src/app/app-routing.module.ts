@@ -12,8 +12,9 @@ const appRoutes: Routes = [
   {path: 'home', component: homeComponent},
   // {path: 'product/:ean', component: productComponent},
   {path: 'product/:ean', component: productComponent},
+  {path: 'product/:stock_id/:ean', component: productComponent},
+  {path: 'product/:stock_id/:ean/change/:stock_id', component: changeComponent},
   {path: 'add', component: createComponent},
-  {path: 'product/change/:stock_id', component: changeComponent},
   {path: '', component: homeComponent},
 ];
 

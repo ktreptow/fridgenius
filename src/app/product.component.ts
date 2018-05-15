@@ -9,8 +9,7 @@ import { DetailedProduct } from './detailed_product';
 import { ProductAdd } from './product_add';
 
 // produktdetails - get - /fridge/api/v0.1/food/get/{ean};
-// BESTAND ÄNDERN - POST - /fridge/api/v0.1/inventory/update/{stock_id};
-// PRODUKT ÄNDERN - POST - /fridge/api/v0.1/food/update/{ean};
+// 
 // löschen - delete - /fridge/api/v0.1/inventory/remove/{stock_id}?amount={menge};
 
 // DIALOG zum ändern der Bestände https://stackblitz.com/angular/ardpegolpnk?file=app%2Fdialog-overview-example-dialog.html
@@ -22,7 +21,7 @@ import { ProductAdd } from './product_add';
 export class productComponent {
   title = 'fridgenius';
   public static readonly BASE_URL = 'http://10.14.208.103:5000/fridge/api/v0.1';
-  public static readonly GET_ONE_URL = '/food/get'; // {ean}
+  public static readonly GET_ONE_URL = '/food/get/'; // {ean}
   public static readonly CHANGE_AMOUNT = '/inventory/update'; // {stock_id}
   public static readonly CHANGE_PRODUCT = '/food/update'; // {ean}
   public static readonly DELETE_PRODUCT = '/inventory/remove/'; // {stock_id}?amount={menge}
@@ -31,6 +30,9 @@ export class productComponent {
   detailedProduct : DetailedProduct;
   stockedProduct : Product;
   amount : number; 
+  nutritions : any[];
+  stock_id : string;
+  ean : string;
 
   c_amount : number; 
 
@@ -44,8 +46,12 @@ export class productComponent {
   }
   ngOnInit() {    
     this.sub = this.route.params.subscribe(params => {
-      this.stockedProduct.ean = params['ean'];
+      this.stock_id = params['stock_id'];
+      this.ean = params['ean'];
+      console.log(this.ean);
+      console.log(this.stock_id);
     })
+    this.getProduct(this.ean);
     this.getCategories();
   }
 
@@ -54,9 +60,11 @@ export class productComponent {
   }
 
   getProduct(ean : string) {
-    let url : string = productComponent.BASE_URL.concat(productComponent.GET_ONE_URL.concat(this.stockedProduct.ean));
+    let url : string = productComponent.BASE_URL.concat(productComponent.GET_ONE_URL.concat(ean));
     this.getData(url).subscribe(detailedProduct => {
       this.detailedProduct = detailedProduct;
+      this.detailedProduct.name = detailedProduct.name;
+      this.detailedProduct.image_url = detailedProduct.image_url;
     })
   }
 
@@ -65,7 +73,7 @@ export class productComponent {
   }
   
   deleteProduct() {
-    let url : string = productComponent.BASE_URL.concat(productComponent.DELETE_PRODUCT.concat(this.stockedProduct.stock_id.concat("?amount=".concat(this.amount.toString()))));
+    let url : string = productComponent.BASE_URL.concat(productComponent.DELETE_PRODUCT.concat(this.stock_id.concat("?amount=".concat(this.amount.toString()))));
     this.deleteData(url).subscribe();
     this.goBack();
   }

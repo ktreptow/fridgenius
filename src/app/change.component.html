@@ -12,7 +12,7 @@
 <mat-toolbar>
         <!-- <mat-icon (click)="goBack()">keyboard_backspace</mat-icon> -->
         <!-- <h1>{{Product.name}}</h1> -->
-        <h1>Produkt ändern: {{Product.name}}</h1>
+        <h1>Produkt ändern: {{detailedProduct.name}}</h1>
     </mat-toolbar>
 
 <mat-card>
@@ -23,7 +23,7 @@
                   
     <mat-form-field>
             <mat-select placeholder="Kategorie" [(ngModel)]="c_category">
-                <mat-option *ngFor="let Category of categories" [value]="c_category">{{Category.name}}</mat-option>
+                <mat-option *ngFor="let item of categories" [value]="c_category">{{item}}</mat-option>
                 </mat-select>
           </mat-form-field>
         </mat-card>   

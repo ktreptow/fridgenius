@@ -6,16 +6,28 @@
    <h1>Inhalt Deines Kühlschranks:</h1>
 </mat-toolbar>
 
-<mat-grid-list cols="4">
-    <div *ngFor="let Product of products">
-            <mat-grid-tile mat-button class="gridsize">
-                <a mat-button class="grid" routerLink="/product/{{Product.ean}}">
-                <img alt="{{Product.name}}" src="{{Product.img_url}}">     
+<!-- <mat-card *ngIf="products==0">
+        <textarea  matInput  [(ngModel)]="message" placeholder="" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="5"></textarea>
+</mat-card> -->
+
+<mat-grid-list cols="5">
+        <div *ngFor="let item of productsArray">
+                <mat-grid-tile class="gridsize">
+                <a mat-button class="grid" routerLink="/product/{{item.stock_id}}/{{item.ean}}">
+                <img alt="{{item.name}}" class="grid_pic" src="{{item.img_url}}">    
+                <h1>{{item.name}}</h1> 
                 </a>
             </mat-grid-tile>
 </div>
 </mat-grid-list>
 
+<mat-toolbar>
+        <!-- <span>
+        <mat-icon (click)="goBack()">home</mat-icon>
+    </span> -->
+       <h1></h1>
+    </mat-toolbar>
 <footer>
 <mat-card class="footer">
         <button mat-fab class="plus" routerLink="add">+</button>

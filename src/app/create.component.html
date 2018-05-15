@@ -21,16 +21,16 @@
                   </mat-form-field>
                                      
                   
-    <mat-form-field>
-            <mat-select placeholder="Kategorie" [(ngModel)]="c_category">
-                <mat-option *ngFor="let Category of categories">{{Category.name}}</mat-option>
-
-                    <!-- <mat-option value="gemüse" >Gemüse</mat-option>
-                    <mat-option value="obst" >Obst</mat-option>
-                    <mat-option value="fleisch" >Fleisch</mat-option> -->
-                </mat-select>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Kategorie" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let item of categories" [value]="category">                
+                <span>{{ category }}</span> |
+              </mat-option>
+            </mat-autocomplete>
           </mat-form-field>
-        </mat-card>   
+        </mat-card>
+
 <mat-card>
   <span>
         <input matInput [matDatepicker]="picker" placeholder="Mindesthaltbarkeitsdatum" [(ngModel)]="c_mhd">
