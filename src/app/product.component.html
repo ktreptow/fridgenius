@@ -1,13 +1,9 @@
+<!-- Detailierte Anzeige eines Produktes -->
 
 <mat-toolbar>
-        <!-- <mat-icon (click)="goBack()">keyboard_backspace</mat-icon> -->
-        <!-- <h1>{{Product.name}}</h1> -->
         <h1>{{detailedProduct.name}}</h1>
     </mat-toolbar>
     
-
-
-
         <mat-card>
                         <img alt="Produktfoto" src="{{detailedProduct.image_url}}">
         </mat-card>
@@ -17,19 +13,12 @@
                 <mat-card>
                         <h1>Kategorie: {{detailedProduct.category}}</h1>
                         <h1>Mindestens haltbar bis: {{detailedProduct.mhd}}</h1>                                  
-                </mat-card>   
-                <!-- <mat-card>
-                        <h1>Anzahl: {{stockedProduct.stock_count}}</h1>
-                        <h1>Menge: {{detailedProduct.content}} {{detailedProduct.content_unit}}</h1>                                  
-                </mat-card>    -->
-              
+                </mat-card>                 
 
         <mat-card class="footer">
                 <button mat-fab class="minud" (click)="goBack()">Zurück</button>
                 <button mat-fab class="minus" routerLink="change/{{stock_id}}">Ändern</button>
             </mat-card>
-
-
 
             <table mat-table>
                         <ng-container matColumnDef="position">
@@ -37,7 +26,6 @@
                                 <td mat-cell *matCellDef="let element"> {{productDetails}} </td>
                               </ng-container>
                           
-                              <!-- Name Column -->
                               <ng-container matColumnDef="name">
                                 <th mat-header-cell *matHeaderCellDef> "" </th>
                                 <td mat-cell *matCellDef="let element"> {{productDetails}} </td>

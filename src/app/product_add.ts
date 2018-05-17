@@ -1,3 +1,5 @@
+// Klasse und Struktur eines Produktes, was in die eigene Kühlschrankdatenbank geschrieben und neu erstellt werden soll 
+
 export class ProductAdd {
 
     ean:string;

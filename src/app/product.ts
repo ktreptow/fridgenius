@@ -1,3 +1,5 @@
+// Klasse eines Produktes, welches aus der eigenen Datenbank geladen und angezeigt wird
+
 export class Product {
 products : {
     category:string;

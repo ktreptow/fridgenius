@@ -1,3 +1,5 @@
+// Quellcode zum Anzeigen der Startseite und des Kühlschrankinhalts
+
 import { Component, OnInit, Injectable, Inject, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { Http, Response } from '@angular/http';

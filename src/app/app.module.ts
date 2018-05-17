@@ -1,3 +1,5 @@
+// Import aller benutzen Module
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Injectable } from '@angular/core';

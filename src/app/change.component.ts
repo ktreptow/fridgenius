@@ -1,3 +1,8 @@
+// Quellcode zum Ändern von Produkten
+// Hierbei wird das alte Produkt ausgelesen und in die Felder geschrieben. Werden diese geändert, dann wird der neue Wert übernommen.
+
+// NICHT LAUFFÄHIG
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { Http, Response } from '@angular/http';
@@ -9,9 +14,6 @@ import { ProductAdd } from './product_add';
 import { Observable } from 'rxjs/Observable';
 import { DetailedProduct } from './detailed_product';
 
-// Produkt hinzufügen - add - put -  &quot;/fridge/api/v0.1/inventory/add&quot;
-// BESTAND ÄNDERN - POST - /fridge/api/v0.1/inventory/update/{stock_id};
-// PRODUKT ÄNDERN - POST - /fridge/api/v0.1/food/update/{ean};
 @Component({
   selector: 'app-change',
   templateUrl: './change.component.html',
@@ -97,7 +99,6 @@ export class changeComponent {
     let body = JSON.stringify(productAdd);
     let headers = new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({headers: headers});
-    // return this.http.put(url, body, options).map(this.extractData).catch(this.handleError);   
     return this.http.put(url, body, options).map(this.extractData);   
 }  
 

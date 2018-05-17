@@ -1,3 +1,5 @@
+// Quellcode zur detaillierten Anzeige eines Produktes
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { Http, Response } from '@angular/http';
@@ -8,11 +10,7 @@ import 'rxjs/add/operator/map';
 import { DetailedProduct } from './detailed_product';
 import { ProductAdd } from './product_add';
 
-// produktdetails - get - /fridge/api/v0.1/food/get/{ean};
-// 
-// löschen - delete - /fridge/api/v0.1/inventory/remove/{stock_id}?amount={menge};
 
-// DIALOG zum ändern der Bestände https://stackblitz.com/angular/ardpegolpnk?file=app%2Fdialog-overview-example-dialog.html
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

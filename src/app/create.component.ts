@@ -1,3 +1,8 @@
+// Quellcode zum Anlegen neuer Produkte
+// Hierbei werden Werte in die dafür vorgesehenen Felder geschrieben, in das neu Erstellte Produkt geschrieben und dieses wird dann private HTTP Request in die Datenbank geschrieben.
+  
+// NICHT LAUFFÄHIG
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { Http, Response } from '@angular/http';
@@ -9,7 +14,6 @@ import { Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { DetailedProduct } from './detailed_product';
 
-// Produkt hinzufügen - add - put -  &quot;/fridge/api/v0.1/inventory/add&quot;
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -75,12 +79,14 @@ export class createComponent {
     // return this.http.put(url, body, options).map(this.extractData).catch(this.handleError);   
 }  
 
-createProduct() {
-  let productAdd = new ProductAdd(undefined,this.c_name,this.c_category,this.c_mhd,undefined,undefined,undefined);
+addProduct() {
+  let productAdd = new ProductAdd(undefined,undefined,undefined,undefined,undefined,undefined,undefined);
   productAdd.content = this.c_content;
   productAdd.content_unit = this.c_content_unit;
   productAdd.stock_count = this.c_stock_count;
   productAdd.ean = this.c_ean;
+  productAdd.name = this.c_name;
+  productAdd.category = this.c_category
 
   if (this.c_ean!=undefined) {
     this.getProduct(this.c_ean);

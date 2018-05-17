@@ -1,15 +1,8 @@
+<!-- Startseite der Anwendung und Anzeige des Inhalts des eigenen Kühlschranks -->
 
 <mat-toolbar>
-    <!-- <span>
-    <mat-icon (click)="goBack()">home</mat-icon>
-</span> -->
    <h1>Inhalt Deines Kühlschranks:</h1>
 </mat-toolbar>
-
-<!-- <mat-card *ngIf="products==0">
-        <textarea  matInput  [(ngModel)]="message" placeholder="" matTextareaAutosize matAutosizeMinRows="2"
-              matAutosizeMaxRows="5"></textarea>
-</mat-card> -->
 
 <mat-grid-list cols="5">
         <div *ngFor="let item of productsArray">
@@ -23,9 +16,6 @@
 </mat-grid-list>
 
 <mat-toolbar>
-        <!-- <span>
-        <mat-icon (click)="goBack()">home</mat-icon>
-    </span> -->
        <h1></h1>
     </mat-toolbar>
 <footer>

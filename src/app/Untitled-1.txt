@@ -1,3 +1,0 @@
-NAME aus der EAN Datenbank vor eigen angegebenem bei create
-tabelle mit nutrition
-- Adresse überall ändern

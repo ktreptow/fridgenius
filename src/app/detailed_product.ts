@@ -1,3 +1,5 @@
+// Klasse des Detailierten Produktes aus der Datenbank
+
 export class DetailedProduct {
 content_url : string;
     name : string;

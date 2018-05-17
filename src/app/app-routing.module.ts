@@ -1,3 +1,5 @@
+// Modul zum Routing zwischen den Seiten
+
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
