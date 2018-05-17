@@ -1,4 +1,4 @@
-# FREDGENIUS
+# FRIDGENIUS
 
 Zum Starten der Oberfläche ist eine Installation von Angular und einiger zusätzlicher Module nötig. 
 Außerdem muss die Anwendungs auf einem NPM Server laufen, damit die CSS/HTML und Typescript Dateien zu Javascript kompiliert werden können.
