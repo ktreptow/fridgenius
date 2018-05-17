@@ -1,27 +1,30 @@
-# Webapp
+# FREDGENIUS
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+Zum Starten der Oberfläche ist eine Installation von Angular und einiger zusätzlicher Module nötig. 
+Außerdem muss die Anwendungs auf einem NPM Server laufen, damit die CSS/HTML und Typescript Dateien zu Javascript kompiliert werden können.
 
-## Development server
+Dieses geschieht mit den Folgenden Schritten: 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installieren der Umgebung und starten des Projektes auf einem NPM Server
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Installation des Angular Command Line Interfaces: 
+`npm install -g @angular/cli`
 
-## Build
+Installation des Angular Material Moduls:
+`npm install -g @angular/material`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Betreten der richtigen Ordner in der Kommandozeile:
+`cd webapp`
 
-## Running unit tests
+Starten des NPM Servers:
+`ng serve -open`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Aufruf der App im Browser über:
 
-## Running end-to-end tests
+`localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+Der kommentierte Quellcode befindet sich im Ordner `webapp/src/app`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
